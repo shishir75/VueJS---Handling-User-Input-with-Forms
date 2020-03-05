@@ -22,7 +22,7 @@
 
           <div class="form-group">
             <label>Message</label>
-            <textarea class="form-control" cols="30" rows="5" placeholder="Enter Message"></textarea>
+            <textarea class="form-control" v-model="message" cols="30" rows="5" placeholder="Enter Message"></textarea>
           </div>
 
           <div class="form-group form-inline">
@@ -72,7 +72,7 @@
             <p class="card-text">Email: {{ userData.email }}</p>
             <p class="card-text">Password: {{ userData.password }}</p>
             <p class="card-text">Age: {{ userData.age }}</p>
-            <p class="card-text">Message</p>
+            <p class="card-text" style="white-space: pre">Message: {{ message }}</p>
             <p class="card-text">Send Mail ?</p>
             <ul>
               <li></li>
@@ -97,7 +97,8 @@ export default {
           email: '',
           password: '',
           age: null
-        }
+        },
+        message: ''
     }
   }
 
