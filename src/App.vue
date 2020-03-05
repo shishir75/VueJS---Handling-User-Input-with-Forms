@@ -27,23 +27,24 @@
 
           <div class="form-group form-inline">
             <div class="custom-control custom-checkbox my-1 mr-sm-2">
-              <input type="checkbox" class="custom-control-input" id="mail">
+              <input type="checkbox" class="custom-control-input" value="SendMail" v-model="sendMail" id="mail">
               <label class="custom-control-label" for="mail">Send Mail</label>
             </div>
             <div class="custom-control custom-checkbox my-1 mr-sm-2">
-              <input type="checkbox" class="custom-control-input" id="mailinfo">
-              <label class="custom-control-label" for="mailinfo">Send Infomail</label>
+              <input type="checkbox" class="custom-control-input" value="SendInfoMail" v-model="sendMail" id="mailinfo">
+              <label class="custom-control-label" for="mailinfo">Send InfoMail</label>
             </div>
           </div>
 
-          <div class="form-group">
-            <div class="custom-control custom-radio custom-control-inline">
-              <input type="radio" id="male" class="custom-control-input">
-              <label class="custom-control-label" for="male">Male</label>
+          <div class="form-group form-inline">
+            <div class="custom-control custom-radio form-check form-check-inline">
+              <input class="custom-control-input form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="Male">
+              <label class="custom-control-label form-check-label" for="inlineRadio1">Male</label>
             </div>
-            <div class="custom-control custom-radio custom-control-inline">
-              <input type="radio" id="female" class="custom-control-input">
-              <label class="custom-control-label" for="female">Female</label>
+
+            <div class="custom-control custom-radio form-check form-check-inline">
+              <input class="custom-control-input form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="Female">
+              <label class="custom-control-label form-check-label" for="inlineRadio2">Female</label>
             </div>
           </div>
 
@@ -75,7 +76,7 @@
             <p class="card-text" style="white-space: pre">Message: {{ message }}</p>
             <p class="card-text">Send Mail ?</p>
             <ul>
-              <li></li>
+              <li v-for="email in sendMail" :key="email">{{ email}}</li>
             </ul>
             <p class="card-text">Gender: </p>
             <p class="card-text">Priority: </p>
@@ -98,7 +99,8 @@ export default {
           password: '',
           age: null
         },
-        message: ''
+        message: '',
+        sendMail: []
     }
   }
 
