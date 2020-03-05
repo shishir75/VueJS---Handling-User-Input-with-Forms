@@ -38,12 +38,12 @@
 
           <div class="form-group form-inline">
             <div class="custom-control custom-radio form-check form-check-inline">
-              <input class="custom-control-input form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="Male">
+              <input class="custom-control-input form-check-input" type="radio" v-model="gender" id="inlineRadio1" value="Male">
               <label class="custom-control-label form-check-label" for="inlineRadio1">Male</label>
             </div>
 
             <div class="custom-control custom-radio form-check form-check-inline">
-              <input class="custom-control-input form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="Female">
+              <input class="custom-control-input form-check-input" type="radio" v-model="gender" id="inlineRadio2" value="Female">
               <label class="custom-control-label form-check-label" for="inlineRadio2">Female</label>
             </div>
           </div>
@@ -78,7 +78,7 @@
             <ul>
               <li v-for="email in sendMail" :key="email">{{ email}}</li>
             </ul>
-            <p class="card-text">Gender: </p>
+            <p class="card-text">Gender: {{ gender }}</p>
             <p class="card-text">Priority: </p>
           </div>
         </div>
@@ -100,7 +100,8 @@ export default {
           age: null
         },
         message: '',
-        sendMail: []
+        sendMail: [],
+        gender: 'Male'
     }
   }
 
