@@ -56,6 +56,13 @@
             </select>
           </div>
 
+          <div class="form-group">
+            <div class="custom-control custom-switch">
+              <input type="checkbox" class="custom-control-input" id="customSwitch1" @click="toggleButton">
+              <label class="custom-control-label" for="customSwitch1">{{ switchButton === true ? 'ON' : 'OFF' }}</label>
+            </div>
+          </div>
+
           <button type="submit" class="btn btn-primary">Submit</button>
         </form>
       </div>
@@ -78,6 +85,7 @@
             </ul>
             <p class="card-text">Gender: {{ gender }}</p>
             <p class="card-text">Priority: {{ selectedPriority }}</p>
+            <p class="card-text">Switch: {{ switchButton === true ? 'ON' : 'OFF' }}</p>
           </div>
         </div>
       </div>
@@ -101,7 +109,13 @@ export default {
         sendMail: [],
         gender: 'Male',
         priorities: ['High', 'Medium', 'Low'],
-        selectedPriority: ''
+        selectedPriority: '',
+        switchButton: false,
+    }
+  },
+  methods: {
+    toggleButton() {
+      return this.switchButton = !this.switchButton;
     }
   }
 
