@@ -50,11 +50,9 @@
 
           <div class="form-group">
             <label class="mr-sm-2">Priority</label>
-            <select class="custom-select mr-sm-2">
-              <option selected>Choose...</option>
-              <option value="1">One</option>
-              <option value="2">Two</option>
-              <option value="3">Three</option>
+            <select class="custom-select mr-sm-2" v-model="selectedPriority">
+              <option value="" disabled>Choose...</option>
+              <option v-for="priority in priorities" :key="priority">{{ priority }}</option>
             </select>
           </div>
 
@@ -79,7 +77,7 @@
               <li v-for="email in sendMail" :key="email">{{ email}}</li>
             </ul>
             <p class="card-text">Gender: {{ gender }}</p>
-            <p class="card-text">Priority: </p>
+            <p class="card-text">Priority: {{ selectedPriority }}</p>
           </div>
         </div>
       </div>
@@ -101,7 +99,9 @@ export default {
         },
         message: '',
         sendMail: [],
-        gender: 'Male'
+        gender: 'Male',
+        priorities: ['High', 'Medium', 'Low'],
+        selectedPriority: ''
     }
   }
 
