@@ -6,18 +6,17 @@
         <form>
           <div class="form-group">
             <label>Email address</label>
-            <input type="email" class="form-control" placeholder="Enter email">
-            <small class="form-text text-muted"></small>
+            <input type="email" v-model="userData.email" class="form-control" placeholder="Enter email">
           </div>
 
           <div class="form-group">
             <label>Password</label>
-            <input type="password" class="form-control" placeholder="Password">
+            <input type="password" v-model="userData.password" class="form-control" placeholder="Password">
           </div>
 
           <div class="form-group">
             <label>Age</label>
-            <input type="number" class="form-control" placeholder="Enter Age">
+            <input type="number" v-model="userData.age" class="form-control" placeholder="Enter Age">
             <small class="form-text text-muted"></small>
           </div>
 
@@ -28,12 +27,12 @@
 
           <div class="form-group form-inline">
             <div class="custom-control custom-checkbox my-1 mr-sm-2">
-              <input type="checkbox" class="custom-control-input" id="customControlInline">
-              <label class="custom-control-label" for="customControlInline">Send Mail</label>
+              <input type="checkbox" class="custom-control-input" id="mail">
+              <label class="custom-control-label" for="mail">Send Mail</label>
             </div>
             <div class="custom-control custom-checkbox my-1 mr-sm-2">
-              <input type="checkbox" class="custom-control-input" id="customControlInline1">
-              <label class="custom-control-label" for="customControlInline1">Send Infomail</label>
+              <input type="checkbox" class="custom-control-input" id="mailinfo">
+              <label class="custom-control-label" for="mailinfo">Send Infomail</label>
             </div>
           </div>
 
@@ -70,11 +69,14 @@
             Result
           </div>
           <div class="card-body">
-            <p class="card-text">Email: </p>
-            <p class="card-text">Password: </p>
-            <p class="card-text">Age: </p>
+            <p class="card-text">Email: {{ userData.email }}</p>
+            <p class="card-text">Password: {{ userData.password }}</p>
+            <p class="card-text">Age: {{ userData.age }}</p>
             <p class="card-text">Message</p>
-            <p class="card-text">Sending Option: </p>
+            <p class="card-text">Send Mail ?</p>
+            <ul>
+              <li></li>
+            </ul>
             <p class="card-text">Gender: </p>
             <p class="card-text">Priority: </p>
           </div>
@@ -91,7 +93,11 @@ export default {
   name: 'App',
   data() {
     return {
-      
+        userData: {
+          email: '',
+          password: '',
+          age: null
+        }
     }
   }
 
