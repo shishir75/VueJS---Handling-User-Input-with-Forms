@@ -63,12 +63,12 @@
             </div>
           </div>
 
-          <button type="submit" class="btn btn-primary">Submit</button>
+          <button type="submit" class="btn btn-primary" @click.prevent="submitted">Submit</button>
         </form>
       </div>
     </div>
 
-    <div class="row my-5">
+    <div class="row my-5" v-if="isSubmitted">
       <div class="col-md-8 offset-md-2">
         <div class="card">
           <div class="card-header">
@@ -111,11 +111,15 @@ export default {
         priorities: ['High', 'Medium', 'Low'],
         selectedPriority: '',
         switchButton: false,
+        isSubmitted: false
     }
   },
   methods: {
     toggleButton() {
-      return this.switchButton = !this.switchButton;
+       return this.switchButton = !this.switchButton;
+    },
+    submitted() {
+       this.isSubmitted = true;
     }
   }
 
